@@ -1,12 +1,12 @@
 const forms = {
   circunference: 
-    { label: 'Raio', name: 'radius', type: 'number', key: 'Circunferência' },
+    { label: 'Raio', name: 'radius', kbType: 'numeric'},
   radius: 
-    { label: 'Circunferência', name: 'circunference', type: 'number', key: 'Raio' },
+    { label: 'Circunferência', name: 'circunference', kbType: 'numeric'},
   clothSize: 
-    { label: 'Cintura', name: 'waist', type: 'number', key: 'Tamanho do tecido' },
+    { label: 'Cintura', name: 'waist', kbType: 'numeric'},
   hook: 
-    { label: 'Quadril', name: 'hip', type: 'number', key: 'Gancho' },
+    { label: 'Quadril', name: 'hip', kbType: 'numeric'},
 };
 
 export default forms

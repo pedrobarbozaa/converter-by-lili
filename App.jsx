@@ -6,14 +6,12 @@ import DynamicForms from './src/components/DynamicForms.jsx';
 
 
 const App = () => {
-  const [form, setForm] = useState('');
   const [fields, setFields] = useState([])
 
   const handleFormChange = (chosenForm) => {
     setFields([
       forms[chosenForm]
     ])
-    setForm(forms[chosenForm].key);
   };
 
   return (
@@ -21,7 +19,6 @@ const App = () => {
       <Text style={{ marginBottom: 10 }}>Selecione um tipo:</Text>
 
       <Picker
-        selectedValue={form} //Ver uma melhora pra essa estrutura
         onValueChange={(chosenForm) => handleFormChange(chosenForm)}
       >
         <Picker.Item label="Selecione..." value="" />
@@ -31,9 +28,8 @@ const App = () => {
         <Picker.Item label='Gancho' value= 'hook' />
       </Picker>
 
-      {form !== '' && (
+      {fields !== '' && (
         <View style={{ marginTop: 20 }}>
-          {/* <Text>Formulário para: {form}</Text> */}
           <DynamicForms fields={fields} />
         </View>
       )}

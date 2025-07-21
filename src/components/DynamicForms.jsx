@@ -1,31 +1,17 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, ScrollView } from 'react-native';
+import getMultiplier from '../utils/getMultiplier';
 
 const DynamicForms = ({ fields }) => {
   const [formData, setFormData] = useState({});
   const [result, setResult] = useState(null)
 
-  const handleChange = (input, type) => {
-    setFormData( {input: input, type: type} );
-  };
-
-  const getMultiplier = (formType) => { //Abstrair
-    switch (formType) {
-      case 'Circunferência':
-        return 2*Math.PI;
-      case 'Raio':
-        return 1/(2*Math.PI);
-      case 'Tamanho do tecido': 
-        return 3;
-      case 'Gancho':
-        return 1/16;
-      default:
-        return 1;
-    }
+  const handleChange = (input, name) => {
+    setFormData( {input: input, name: name} );
   };
 
   const handleSubmit = () => {
-    const multi = getMultiplier(formData.type)
+    const multi = getMultiplier(formData.name)
 
     const num = parseFloat(formData.input);
 
@@ -34,15 +20,15 @@ const DynamicForms = ({ fields }) => {
 
   //Tem um bug acontecendo quando uso a mesma medida para duas opçoes diferentes de formulário. A atualização só está acontecendo na mudança dos números.
 
-  const renderForm = (fields) => (
+  const renderForm = (fields) => ( //Lembrar que se houverem casos com mais de um campo, o multiplier precisa de ajustes
     fields.map((field) => (
       <View key={field.name} style={{ marginBottom: 12 }}>
         <Text>Digite a medida de: {field.label}</Text>
         <TextInput
-          keyboardType="numeric"
+          keyboardType={field.kbType}
           placeholder={field.label}
           value={formData.input}
-          onChangeText={(input) => handleChange(input, field.key)} 
+          onChangeText={(input) => handleChange(input, field.name)} 
         />
       </View>
     ))
