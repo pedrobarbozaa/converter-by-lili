@@ -2,7 +2,7 @@ const forms = {
   circunference: 
     { label: 'Raio', name: 'radius', kbType: 'numeric'},
   radius: 
-    { label: 'Circunferência', name: 'circunference', kbType: 'numeric'},
+    { label: 'Cintura', name: 'circunference', kbType: 'numeric'},
   clothSize: 
     { label: 'Cintura', name: 'waist', kbType: 'numeric'},
   hook: 

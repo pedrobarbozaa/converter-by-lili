@@ -1,29 +1,57 @@
 {
   "expo": {
-    "name": "converterLili",
-    "slug": "converterLili",
+    "name": "Calculadora da Ligia",
+    "slug": "calculadora-ligia",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/android-icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/android-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ccd5ae"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ligia.calculadora",
+      "buildNumber": "1",
+      "infoPlist": {
+        "UILaunchStoryboardName": "SplashScreen"
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/android-icon.png",
+        "backgroundColor": "#ccd5ae"
       },
-      "edgeToEdgeEnabled": true
+      "package": "com.ligia.calculadora",
+      "versionCode": 1,
+      "edgeToEdgeEnabled": true,
+      "permissions": []
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#ccd5ae",
+          "image": "./assets/splash.png",
+          "imageWidth": 200
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "857f84d6-6b05-438f-8f04-fd5e5a4e9917"
+      }
     }
   }
 }
